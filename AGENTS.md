@@ -74,3 +74,4 @@ Read every session. Write changes in place, prefix-stable.
   review with rankings, chairman synthesis) with two rosters (verdict and
   advisor), a machine-derived pass|fix verdict, and a receipt.
 - The council debates the result, never rebuilds it.
+- humanizer always on: no em-dashes, no en-dashes, no cadratins, ever.
