@@ -10,17 +10,17 @@ other's work anonymously, and a chairman ships one machine-derived verdict
 
 ## What it does
 
-- Stage 1 — every lens gives a first opinion in parallel, no cross-talk.
-- Stage 2 — each lens reviews the others' opinions, anonymized as
+- Stage 1: every lens gives a first opinion in parallel, no cross-talk.
+- Stage 2: each lens reviews the others' opinions, anonymized as
   `Member A/B/C` in shuffled order, and ranks them by accuracy and insight.
-- Stage 3 — the chairman reads all of it, applies the user lens, and writes
+- Stage 3: the chairman reads all of it, applies the user lens, and writes
   `council.md`: final verdict, the disagreements, the one action retained.
 
 Two rosters:
 
-- `verdict` — architect, reviewer, writer, researcher. For a finished result:
+- `verdict`: architect, reviewer, writer, researcher. For a finished result:
   ship or fix.
-- `advisor` — contrarian, first-principles, expansionist, outsider, executor.
+- `advisor`: contrarian, first-principles, expansionist, outsider, executor.
   For an open idea before you commit.
 
 ## Install

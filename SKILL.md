@@ -1,11 +1,11 @@
 ---
 name: council
-description: Three-stage debate bench that spawns lens agents in parallel: independent first opinions, anonymized peer review with rankings, then a chairman synthesis into council.md with a machine-derived pass|fix verdict and a receipt. Two rosters — verdict lenses (architect, reviewer, writer, researcher) for finished results, advisor styles (contrarian, first-principles, expansionist, outsider, executor) for open ideas. Use whenever Operator wants multiple agents debating whether a thing is good, what to improve, what to change, what is wrong.
+description: Three-stage debate bench that spawns lens agents in parallel: independent first opinions, anonymized peer review with rankings, then a chairman synthesis into council.md with a machine-derived pass|fix verdict and a receipt. Two rosters: verdict lenses (architect, reviewer, writer, researcher) for finished results, advisor styles (contrarian, first-principles, expansionist, outsider, executor) for open ideas. Use whenever Operator wants multiple agents debating whether a thing is good, what to improve, what to change, what is wrong.
 license: MIT
 user-invocable: true
 ---
 
-# council — the debate bench
+# council, the debate bench
 
 The council judges a RESULT (research, plan, planning output) or an IDEA. It
 critiques; it never does the work. If the result is still missing, send it back
@@ -15,10 +15,10 @@ to the builder first. A lens that starts building has stepped out of role.
 
 Keep this file lean. Read the deeper files only when the stage needs them:
 
-- `references/lenses.md` — full playbook per lens. Read BEFORE any spawn.
-- `references/rubric.md` — severity, confidence, and the mechanical verdict rule.
-- `references/tiebreak.md` — chairman decision rules when lenses split.
-- `examples/sample-run.md` — a golden run. Read before writing `council.md`.
+- `references/lenses.md`: full playbook per lens. Read BEFORE any spawn.
+- `references/rubric.md`: severity, confidence, and the mechanical verdict rule.
+- `references/tiebreak.md`: chairman decision rules when lenses split.
+- `examples/sample-run.md`: a golden run. Read before writing `council.md`.
 
 ## Input
 
@@ -39,7 +39,7 @@ Pick one, or mix as the ask demands. Full playbooks live in
 | `verdict` | architect, reviewer, writer, researcher |
 | `advisor` | contrarian, first-principles, expansionist, outsider, executor |
 
-The orchestrator is always a fifth, extra lens — **user** — but it stays on
+The orchestrator is always a fifth, extra lens, **user**, but it stays on
 top, reads the council, and never joins the debate.
 
 ## Three stages

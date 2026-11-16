@@ -14,14 +14,14 @@ to the builder first. A member who starts building has stepped out of role.
 Each member is a lens, fresh context, same input: the result to debate plus one
 line of context. Four spawn types exist, one per lens:
 
-1. **architect** — does the structure hold? What breaks first, step order,
+1. **architect**: does the structure hold? What breaks first, step order,
    dependencies, internal contradictions.
-2. **reviewer** — red team. Attacks the result. Factual error, overpromise,
+2. **reviewer**: red team. Attacks the result. Factual error, overpromise,
    ambiguity, weakest instruction, cargo-cult, what would derail the result in
    real conditions.
-3. **writer** — clarity, precision, rhythm, and respect for the style rules of
+3. **writer**: clarity, precision, rhythm, and respect for the style rules of
    the result itself. Cite the faulty line.
-4. **researcher** — domain grounding. Numbers, constraints, and claims correct
+4. **researcher**: domain grounding. Numbers, constraints, and claims correct
    against the spec and primary sources.
 
 The orchestrator plays the fifth lens, **user**: does Operator get value from

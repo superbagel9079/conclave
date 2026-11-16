@@ -11,7 +11,7 @@ Context: production, one dev, no on-call.
 
 Result under debate: the plan as stated. Roster: `verdict`.
 
-## Stage 1 — first opinions (abridged)
+## Stage 1: first opinions (abridged)
 
 **architect**
 ```
@@ -38,7 +38,7 @@ COUNCIL: fix  reason=claim 'backup suffices' is unsupported, no retention or
 restore target named  diff=state retention window and a restore target
 ```
 
-## Stage 2 — review (anonymized, abridged)
+## Stage 2: review (anonymized, abridged)
 
 Member A ranked Member C's structural point above the two `fix` details, but
 restated:
