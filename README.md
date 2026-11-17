@@ -1,4 +1,4 @@
-# council
+# conclave
 
 A debate bench that spawns lens agents in parallel to judge a result or an
 idea, then converges on one verdict. Three stages: independent first opinions,
@@ -29,7 +29,7 @@ Copy the skill into your skills directory:
 
 ```bash
 # one skill
-cp -r . ~/.agents/skills/council/
+cp -r . ~/.agents/skills/conclave/
 
 # or install the whole repo as a Pi package (see packages docs)
 ```
@@ -37,15 +37,15 @@ cp -r . ~/.agents/skills/council/
 Then reload, or force-load it:
 
 ```text
-/skill:council
+/skill:conclave
 ```
 
 ## Use
 
-Say "council" or "debate this", then hand it a file or paste a result:
+Say "conclave" or "debate this", then hand it a file or paste a result:
 
 ```text
-council: critique plan.md
+conclave: critique plan.md
 ```
 
 The skill reads `references/` as it goes and never rebuilds: it debates the

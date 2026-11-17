@@ -66,10 +66,10 @@ RECEIPT: passed=<true|false>  evidence=<files + verdicts>  diff=<gap vs request>
 
 Read every session. Write changes in place, prefix-stable.
 
-- Repo name: `conclave` (public). Skill name: `council` (SKILL.md frontmatter).
+- Repo name: `conclave` (public). Skill name: `conclave` (SKILL.md frontmatter).
 - All content is English.
 - Source of truth: this repo. The skill is installed at
-  `~/.agents/skills/council/`.
+  `~/.agents/skills/conclave/`.
 - The council is a three-stage debate bench (first opinions, anonymized peer
   review with rankings, chairman synthesis) with two rosters (verdict and
   advisor), a machine-derived pass|fix verdict, and a receipt.

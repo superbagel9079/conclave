@@ -1,11 +1,11 @@
 ---
-name: council
+name: conclave
 description: "Three-stage debate bench that spawns lens agents in parallel; independent first opinions, anonymized peer review with rankings, then a chairman synthesis into council.md with a machine-derived pass|fix verdict and a receipt. Two rosters: verdict lenses (architect, reviewer, writer, researcher) for finished results, advisor styles (contrarian, first-principles, expansionist, outsider, executor) for open ideas. Use whenever Operator wants multiple agents debating whether a thing is good, what to improve, what to change, what is wrong."
 license: MIT
 user-invocable: true
 ---
 
-# council, the debate bench
+# conclave, the debate bench
 
 The council judges a RESULT (research, plan, planning output) or an IDEA. It
 critiques; it never does the work. If the result is still missing, send it back
