@@ -9,7 +9,7 @@ database at 03:00, the deploy window opens at 02:00. Good to go?"
 
 Context: production, one dev, no on-call.
 
-Result under debate: `plan.md`. Roster: `verdict`.
+Result under debate: `plan.md` (the plan as stated). Roster: `verdict`.
 
 ## Stage 1: first opinions (abridged)
 

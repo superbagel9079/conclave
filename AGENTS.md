@@ -39,6 +39,8 @@ Each member returns a single line, no prose:
 COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>
 ```
 
+`loc` is the finding's file and line, `none` on a clean pass.
+
 ## Convergence
 
 1. Collect each lens's final-round verdict only.

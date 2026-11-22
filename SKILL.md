@@ -94,9 +94,10 @@ COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  re
 ```
 
 `sev` is the highest severity the lens found. `loc` names the file and line
-of the finding, or `none` on a clean pass; the chairman uses it to build the
-round-2 delta payload. A `fix` must carry a named finding at `critical` or
-`major` (`references/rubric.md`); a `fix` with no finding does not count. Only
+of the finding, or `none` on a clean pass or when the result is a prompt with
+no file; the chairman uses it to build the round-2 delta payload. A `fix` must
+carry a named finding at `critical` or `major` (`references/rubric.md`); a
+`fix` with no finding does not count. Only
 `COUNCIL:` lines are authoritative. The advisor roster returns a `steer` line
 instead, no `pass|fix`, no `sev` (`references/lenses.md`).
 
