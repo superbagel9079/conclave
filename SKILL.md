@@ -77,7 +77,7 @@ Loops cost tokens. Three rules keep a debate cheap:
    repo.
 3. **Convergence gate.** Stage 2 always runs. After it, stop the moment every
    lens returned `pass` with no finding and the chairman's confidence is at
-   least 0.95.
+   least 0.98.
 
 Each lens answers in one `COUNCIL:` line only; a Stage 2 Member-letter ranking
 list may sit above it, but no reasoning prose and no re-printed `COUNCIL:`

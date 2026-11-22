@@ -49,7 +49,7 @@ COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  re
    dissent pass, once. Stage 1 and Stage 2 are the two reasoning rounds; the
    dissent pass is the only extra.
 3. Stop early only after Stage 2: when every lens returned `pass sev=none` and
-   the chairman's confidence is at least 0.95 (`references/rubric.md`).
+   the chairman's confidence is at least 0.98 (`references/rubric.md`).
 4. The orchestrator decides, then writes council.md: final verdict,
    disagreements, actions retained, none dropped.
 5. The orchestrator ships on council.md, never on a single lens.

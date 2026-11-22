@@ -46,6 +46,6 @@ Lower it when:
 - the lenses split and the chairman had to break the tie (-)
 - the deciding finding comes from a single lens with no source (-)
 
-Report confidence with the verdict in `council.md`. The ship gate is 0.95:
+Report confidence with the verdict in `council.md`. The ship gate is 0.98:
 at or above it the skill stops after Stage 2; below it a `fix` means "get one
 more look", never "pretend it is settled".
