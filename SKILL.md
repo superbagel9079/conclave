@@ -54,9 +54,10 @@ blocking severity, and the chairman weighs them with the rules in
 2. **Review.** The orchestrator anonymizes the Stage 1 opinions as
    `Member A`, `Member B`, ... and shuffles the order. Each lens then ranks
    them by accuracy and insight and restates its own verdict.
-3. **Final response.** The chairman reads all Stage 2 verdicts and rankings,
-   weighs them through the user lens, and writes `council.md`: final verdict,
-   the disagreements, the one action retained. Ship on `council.md`, never on
+3. **Final response.** The chairman reads the final-round verdicts and
+   rankings, weighs them through the user lens, and writes `council.md`: final
+   verdict, the disagreements, the one action retained. Ship on `council.md`,
+   never on
    a lone lens.
 
 If the Stage 2 verdicts still split, the chairman runs one dissent pass

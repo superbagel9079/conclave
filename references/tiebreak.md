@@ -27,6 +27,8 @@ When verdicts split, higher rows beat lower rows:
   all when the ask was "right problem?"; outsider outranks all when the ask was
   "clear to a newcomer?".
 - A lens that produced no finding cannot veto; only `COUNCIL:` lines count.
+- On an advisor run the lines are `steer`, not `pass|fix`: a split of steers
+  skips the dissent pass and the chairman decides directly from the steers.
 
 ## Tie-break rounds
 

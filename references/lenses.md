@@ -111,7 +111,9 @@ Common failure: repeating the result back with citations instead of checking it.
 
 ## Advisor roster
 
-For an open idea before committing.
+For an open idea before committing. Advisor lenses give a `steer` line, not a
+`pass|fix` verdict. Spawn each with any lens type; the style prompt carries the
+role, and the chairman weighs the steers with the advisor precedence below.
 
 ### contrarian
 
