@@ -57,8 +57,7 @@ blocking severity, and the chairman weighs them with the rules in
 3. **Final response.** The chairman reads the final-round verdicts and
    rankings, weighs them through the user lens, and writes `council.md`: final
    verdict, the disagreements, the one action retained. Ship on `council.md`,
-   never on
-   a lone lens.
+   never on a lone lens.
 
 If the Stage 2 verdicts still split, the chairman runs one dissent pass
 (`references/tiebreak.md`), then decides. Stage 1 and Stage 2 are the two

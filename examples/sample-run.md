@@ -5,7 +5,7 @@ Golden example. Match this shape when you write `council.md`.
 ## Input
 
 Prompt: "We plan to ship the new payment flow with a single cron backup of the
-database at 03:00, inside the 02:00 deploy window. Good to go?"
+database at 03:00, the deploy window opens at 02:00. Good to go?"
 
 Context: production, one dev, no on-call.
 
