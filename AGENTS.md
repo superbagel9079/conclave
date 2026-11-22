@@ -42,8 +42,9 @@ COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=
 ## Convergence
 
 1. Collect each lens's final-round verdict only.
-2. Two debate rounds max. If two lenses diverge, pass one's arguments to the
-   other once.
+2. Stage 2 always runs: each lens reviews the anonymized Stage 1 opinions and
+   ranks them. If lenses still split after Stage 2, the chairman runs one
+   dissent pass, once.
 3. The orchestrator decides, then writes council.md: final verdict,
    disagreements, action retained.
 4. The orchestrator ships on council.md, never on a single lens.

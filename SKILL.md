@@ -1,6 +1,6 @@
 ---
 name: conclave
-description: "Three-stage debate bench that spawns lens agents in parallel; independent first opinions, anonymized peer review with rankings, then a chairman synthesis into council.md with a machine-derived pass|fix verdict and a receipt. Two rosters: verdict lenses (architect, reviewer, writer, researcher) for finished results, advisor styles (contrarian, first-principles, expansionist, outsider, executor) for open ideas. Use whenever Operator wants multiple agents debating whether a thing is good, what to improve, what to change, what is wrong."
+description: "Three-stage debate bench that spawns lens agents in parallel; independent first opinions, anonymized peer review with rankings, then the chairman's synthesis into council.md with a machine-derived pass|fix verdict and a receipt. Two rosters: verdict lenses (architect, reviewer, writer, researcher) for finished results, advisor styles (contrarian, first-principles, expansionist, outsider, executor) for open ideas. Use whenever Operator wants multiple agents debating whether a thing is good, what to improve, what to change, what is wrong."
 license: MIT
 ---
 
@@ -43,7 +43,9 @@ stays on top, reads the verdicts, and never joins. The `verdict` roster is the
 mechanical pass|fix engine and always runs all four lenses. The `advisor`
 roster is for open ideas: its five lenses return recommendations, not a
 blocking severity, and the chairman weighs them with the rules in
-`references/tiebreak.md`.
+`references/tiebreak.md`. An advisor-only run produces a direction, not a
+`pass|fix` verdict; its `council.md` records the direction and closes with a
+`direction=` receipt instead of `passed=`.
 
 ## Three stages
 
@@ -101,8 +103,14 @@ roster returns a `steer` line instead, no `pass|fix`, no `sev`
 
 ## Receipt
 
-Every session closes with one machine line:
+Every verdict-roster session closes with one machine line:
 
 ```
 RECEIPT: passed=<true|false>  evidence=<files + verdicts>  diff=<gap vs request>
+```
+
+An advisor-only session closes with a direction line instead:
+
+```
+RECEIPT: direction=<one line>  evidence=<steer lines>  diff=<what to try>
 ```
