@@ -3,7 +3,7 @@
 Read this before any spawn. Each lens is a fresh-context role, not a slice of
 the orchestrator. Hand the lens its playbook in the spawn prompt.
 
-Every lens returns one line:
+Verdict lenses return one line each:
 
 ```
 COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
@@ -11,9 +11,19 @@ COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=
 
 `pass` ships as-is through this lens; `fix` does not, and `diff` names the one
 change that moves it. `sev` is the severity of the lens's own finding. A `fix`
-needs a concrete, named finding at `critical` or `major`; a `pass` that found
-only `minor` or `nit` still passes unless three lenses flag the same thing
-(`references/rubric.md`).
+needs a concrete, named finding at `critical` or `major`. A `pass` that found
+only `minor` or `nit` still passes, even if two lenses flag the same thing; the
+shared `diff` is recorded as a recommendation, not a block. The writer caps at
+`minor`: style findings never block a structural pass.
+
+Advisor lenses return one recommendation line instead:
+
+```
+COUNCIL: steer  reason=<one line>  diff=<what to try>
+```
+
+No `pass|fix`, no `sev`. The chairman weighs `steer` lines with the advisor
+precedence in `references/tiebreak.md`; they never block a ship on their own.
 
 ---
 
@@ -131,7 +141,8 @@ and what blocks it. If there is no first action, the idea is not a plan yet.
 
 ## Prompt templates
 
-Stage 1, same payload to all, only the role and playbook change:
+Verdict roster, Stage 1, same payload to all four, only the role and playbook
+change:
 
 ```
 You are the <ROLE> lens of a debate council. A result (or idea) is below.
@@ -148,7 +159,25 @@ Judge it through your lens only. End with exactly one line:
 COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
 ```
 
-Stage 2, sent to each lens after Stage 1:
+Advisor roster, Stage 1, same payload to all five, only the role and playbook
+change:
+
+```
+You are the <ROLE> advisor of a debate council. An idea is below.
+
+<ADVISOR PLAYBOOK>
+
+IDEA:
+<the idea, or the notes path to read>
+
+CONTEXT: <one line>
+
+Advise through your role only. End with exactly one line:
+
+COUNCIL: steer  reason=<one line>  diff=<what to try>
+```
+
+Stage 2, verdict roster, sent to each lens after Stage 1:
 
 ```
 Stage 1 opinions are below, anonymized as Member A, Member B, ... in shuffled
@@ -160,6 +189,13 @@ order.
 2. Then restate your own verdict as one line:
 
 COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
+```
+
+Stage 2, advisor roster, same shape: each advisor ranks the other `steer`
+lines, then restates its own:
+
+```
+COUNCIL: steer  reason=<one line>  diff=<what to try>
 ```
 
 Every prompt ends with the no-edit suffix:

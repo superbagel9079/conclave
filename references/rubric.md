@@ -7,9 +7,10 @@ the findings, so it can never disagree with the evidence.
 
 | level | meaning | consequence |
 |-------|---------|-------------|
+| none | no finding | `pass`, never blocks |
 | critical | false claim, wrong number that breaks the result, unsafe step, missing dependency that halts it | `fix`, blocks ship |
-| major | a hole the result paperes over, a weak instruction that will derail it in real conditions | `fix` |
-| minor | phrasing, order, a nit that does not change the outcome | `pass` unless three lenses flag it |
+| major | a hole the result papers over, a weak instruction that will derail it in real conditions | `fix` |
+| minor | phrasing, order, a nit that does not change the outcome | `pass`; two lenses agreeing record a recommendation, never a block |
 | nit | style only | never blocks |
 
 ## Mechanical verdict
@@ -19,9 +20,11 @@ the `reason` prose.
 
 - Any **critical** finding ⇒ `fix`, no discussion.
 - Any **major** finding from the reviewer, researcher, or architect ⇒ `fix`.
+- The writer caps at `minor`: a writer finding never blocks a structural pass.
 - Only minor/nit findings ⇒ `pass`.
 - Two or more lenses naming the same `diff` independently ⇒ that is the action
-  retained, even if each called it minor.
+  retained. If the shared finding is only minor, it is recorded as a
+  recommendation, not a block.
 
 A `fix` without a named finding does not count. The verdict cannot contradict
 the evidence: if the findings are critical, the verdict is `fix`.

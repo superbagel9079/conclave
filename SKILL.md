@@ -30,7 +30,7 @@ Every lens gets the SAME input. Access to files and sources is wide open.
 
 ## Roster
 
-Pick one, or mix as the ask demands. Full playbooks live in
+Pick a roster, or run both as the ask demands. Full playbooks live in
 `references/lenses.md`.
 
 | roster | lenses |
@@ -64,7 +64,7 @@ Exact prompt templates are in `references/lenses.md`.
 
 ## The verdict
 
-One line per member, no prose:
+The verdict roster returns one line per lens, no prose:
 
 ```
 COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
@@ -72,7 +72,9 @@ COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=
 
 `sev` is the highest severity the lens found. A `fix` must carry a named
 finding at `critical` or `major` (`references/rubric.md`); a `fix` with no
-finding does not count. Only `COUNCIL:` lines are authoritative.
+finding does not count. Only `COUNCIL:` lines are authoritative. The advisor
+roster returns a `steer` line instead, no `pass|fix`, no `sev`
+(`references/lenses.md`).
 
 ## Hard laws
 

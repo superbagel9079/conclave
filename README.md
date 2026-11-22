@@ -28,10 +28,7 @@ Two rosters:
 Copy the skill into your skills directory:
 
 ```bash
-# one skill
 cp -r . ~/.agents/skills/conclave/
-
-# or install the whole repo as a Pi package (see packages docs)
 ```
 
 Then reload, or force-load it:

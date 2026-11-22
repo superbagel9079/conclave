@@ -59,6 +59,5 @@ COUNCIL: fix  sev=major  reason=no retention or restore target named  diff=state
 ## Receipt
 
 ```
-RECEIPT: passed=false  evidence=references/../sample-run.md + 4 verdicts
-diff=plan shipped without verify step, retention, or restore target
+RECEIPT: passed=false  evidence=examples/sample-run.md + 4 verdicts  diff=plan shipped without verify step, retention, or restore target
 ```
