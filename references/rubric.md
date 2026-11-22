@@ -16,7 +16,8 @@ the findings, so it can never disagree with the evidence.
 ## Mechanical verdict
 
 Severity is read from each `COUNCIL:` line's `sev` field, never inferred from
-the `reason` prose.
+the `reason` prose. Count each lens once, from its final-round `COUNCIL:`
+line; Stage 1 lines are context for the review, not votes.
 
 - Any **critical** finding from the reviewer, researcher, or architect ⇒
   `fix`, no discussion.

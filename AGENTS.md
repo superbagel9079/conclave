@@ -41,7 +41,7 @@ COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=
 
 ## Convergence
 
-1. Collect all verdicts.
+1. Collect each lens's final-round verdict only.
 2. Two debate rounds max. If two lenses diverge, pass one's arguments to the
    other once.
 3. The orchestrator decides, then writes council.md: final verdict,

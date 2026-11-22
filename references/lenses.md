@@ -1,9 +1,11 @@
 # Lens playbooks
 
 Read this before any spawn. Each lens is a fresh-context role, not a slice of
-the orchestrator. Hand the lens its playbook in the spawn prompt.
+the orchestrator. Hand the lens its playbook in the spawn prompt. A lens
+answers with one `COUNCIL:` line and no reasoning prose; in Stage 2 it may
+list a Member-letter ranking above the single `COUNCIL:` line.
 
-Verdict lenses return one line each:
+Verdict lenses return one `COUNCIL:` line each:
 
 ```
 COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
@@ -177,22 +179,26 @@ Advise through your role only. End with exactly one line:
 COUNCIL: steer  reason=<one line>  diff=<what to try>
 ```
 
-Stage 2, verdict roster, sent to each lens after Stage 1:
+Stage 2, verdict roster, sent to each lens after Stage 1, one fresh lens per
+member, same role as its Stage 1 member. The chairman keeps that role-to-member
+mapping, tells each lens which Member it was, then hands it the full Stage 1
+set, anonymized and shuffled:
 
 ```
-Stage 1 opinions are below, anonymized as Member A, Member B, ... in shuffled
-order.
+You are the <ROLE> lens. In Stage 1 you were Member <X>. Your own Stage 1 line
+is the one labeled Member <X> below.
 
-<Member A opinion> / <Member B opinion> / ...
+<Member A opinion> / <Member B opinion> / ... / <Member X opinion (yours)>
 
-1. Rank them by accuracy and insight, best first.
-2. Then restate your own verdict as one line:
+1. Rank them by accuracy and insight, best first, as Member letters only.
+   Do not re-print any `COUNCIL:` line in the ranking.
+2. Then restate your own verdict as your single `COUNCIL:` line:
 
 COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
 ```
 
-Stage 2, advisor roster, same shape: each advisor ranks the other `steer`
-lines, then restates its own:
+Stage 2, advisor roster, same shape. The chairman tells each advisor which
+Member it was, then each ranks the `steer` lines and restates its own:
 
 ```
 COUNCIL: steer  reason=<one line>  diff=<what to try>

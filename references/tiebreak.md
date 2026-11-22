@@ -1,7 +1,7 @@
 # Tie-break: how the chairman decides
 
-Two debate rounds max, then the chairman decides. These rules make the decision
-a calculation, not a mood.
+Two reasoning rounds max (Stage 1 and Stage 2), then one dissent pass, then
+the chairman decides. These rules make the decision a calculation, not a mood.
 
 ## Precedence of lenses
 
@@ -10,7 +10,8 @@ When verdicts split, higher rows beat lower rows:
 1. A named factual error (researcher or reviewer) beats every `pass`.
 2. A missing dependency or wrong order (architect) beats every `pass` except
    a named factual error that proves otherwise.
-3. A critical or major finding (rubric) beats a `pass` with no finding.
+3. A critical or major finding from reviewer, researcher, or architect beats a
+   `pass` with no finding.
 4. Style-only fixes (writer) never beat a structural `pass` from the architect.
 
 ## Rules
@@ -29,11 +30,17 @@ When verdicts split, higher rows beat lower rows:
 
 ## Tie-break rounds
 
-1. Collect Stage 2 verdicts.
-2. If two lenses disagree, pass each dissenter the other's `reason` and `diff`,
-   once.
-3. Still split after a second pass ⇒ chairman decides with these rules and
-   records the disagreement in `council.md`.
+1. Collect each lens's newest `COUNCIL:` line after Stage 2.
+2. The plurality verdict is the one held by the most lenses; on a tie, the
+   Precedence of lenses above names it. The dissenter set is every lens not
+   holding the plurality verdict. The chairman passes each dissenter every
+   distinct opposing `reason` and `diff`, once; on a multi-way split each
+   dissenter addresses the top-count opposing reason in its single line, and on
+   a tied top count the higher-Precedence winning lens's reason and `diff`. Each
+   dissenter ends that pass with one `COUNCIL:` line, which becomes its
+   final-round vote and replaces its Stage 2 line for counting.
+3. Still split after that pass ⇒ chairman decides with these rules and records
+   the disagreement in `council.md`.
 
 ## What council.md must contain
 
