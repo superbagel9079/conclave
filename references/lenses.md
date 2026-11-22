@@ -194,8 +194,8 @@ is the one labeled Member <X> below.
 
 <Member A opinion> / <Member B opinion> / ... / <Member X opinion (yours)>
 
-1. Rank them by accuracy and insight, best first, as Member letters only.
-   Do not re-print any `COUNCIL:` line in the ranking.
+1. Rank them by internal consistency and insight, best first, as Member
+   letters only. Do not re-print any `COUNCIL:` line in the ranking.
 2. Then restate your own verdict as your single `COUNCIL:` line:
 
 COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>

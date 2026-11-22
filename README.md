@@ -12,9 +12,11 @@ other's work anonymously, and a chairman ships one machine-derived verdict
 
 - Stage 1: every lens gives a first opinion in parallel, no cross-talk.
 - Stage 2: each lens reviews the others' opinions, anonymized as
-  `Member A/B/C` in shuffled order, and ranks them by accuracy and insight.
+  `Member A/B/C` in shuffled order, and ranks them by internal consistency and
+  insight.
 - Stage 3: the chairman reads all of it, applies the user lens, and writes
-  `council.md`: final verdict, the disagreements, the one action retained.
+  `council.md`: final verdict, the disagreements, the actions retained, none
+  dropped.
 
 Two rosters:
 

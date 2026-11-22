@@ -33,9 +33,10 @@ When verdicts split, higher rows beat lower rows:
 ## Tie-break rounds
 
 1. Collect each lens's newest `COUNCIL:` line after Stage 2.
-2. The plurality verdict is the one held by the most lenses; on a tie, the
-   Precedence of lenses above names it. The dissenter set is every lens not
-   holding the plurality verdict. The chairman spawns one fresh lens per
+2. Severity decides the verdict, per `references/rubric.md`. Head count only
+   names the plurality position; on a tie, the Precedence of lenses above
+   names it. The dissenter set is every lens not holding the plurality
+   position. The chairman spawns one fresh lens per
    dissenter (same role as its Stage 2 member, never a steer of the old
    session) and hands it every distinct opposing `reason` and `diff`, once; on
    a multi-way split each dissenter addresses the top-count opposing reason in
@@ -52,7 +53,7 @@ A verdict-roster run records:
 
 - Final verdict: `pass` or `fix`, with confidence from the rubric.
 - The disagreements, in one line each ("reviewer said fix, writer said pass").
-- The action retained: every distinct `critical` or `major` diff, in
+- The actions retained: every distinct `critical` or `major` diff, in
   precedence order. Divergent major diffs are all retained, none dropped; a
   `minor` or `nit` diff is retained only as a recommendation.
 

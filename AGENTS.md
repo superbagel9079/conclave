@@ -51,7 +51,7 @@ COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  re
 3. Stop early only after Stage 2: when every lens returned `pass sev=none` and
    the chairman's confidence is at least 0.95 (`references/rubric.md`).
 4. The orchestrator decides, then writes council.md: final verdict,
-   disagreements, action retained.
+   disagreements, actions retained, none dropped.
 5. The orchestrator ships on council.md, never on a single lens.
 
 ## Hard laws
