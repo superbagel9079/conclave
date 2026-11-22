@@ -72,11 +72,13 @@ Loops cost tokens. Three rules keep a debate cheap:
    so "restate your own verdict" still works with no carried session.
 2. **Delta payloads.** After round 1, hand each lens only the prior `COUNCIL:`
    lines plus the exact disputed file and line numbers, never the whole repo.
-3. **Convergence gate.** Stop the moment every lens returns `pass` with no
-   finding and the chairman's confidence is at least 0.95.
+3. **Convergence gate.** Stage 2 always runs. After it, stop the moment every
+   lens returned `pass` with no finding and the chairman's confidence is at
+   least 0.95.
 
 Each lens answers in one `COUNCIL:` line only; a Stage 2 Member-letter ranking
-list may sit above it, but no reasoning prose and no re-printed `COUNCIL:` lines.
+list may sit above it, but no reasoning prose and no re-printed `COUNCIL:`
+lines in the ranking.
 
 Exact prompt templates are in `references/lenses.md`.
 
