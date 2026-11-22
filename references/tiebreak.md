@@ -35,12 +35,14 @@ When verdicts split, higher rows beat lower rows:
 1. Collect each lens's newest `COUNCIL:` line after Stage 2.
 2. The plurality verdict is the one held by the most lenses; on a tie, the
    Precedence of lenses above names it. The dissenter set is every lens not
-   holding the plurality verdict. The chairman passes each dissenter every
-   distinct opposing `reason` and `diff`, once; on a multi-way split each
-   dissenter addresses the top-count opposing reason in its single line, and on
-   a tied top count the higher-Precedence winning lens's reason and `diff`. Each
-   dissenter ends that pass with one `COUNCIL:` line, which becomes its
-   final-round vote and replaces its Stage 2 line for counting.
+   holding the plurality verdict. The chairman spawns one fresh lens per
+   dissenter (same role as its Stage 2 member, never a steer of the old
+   session) and hands it every distinct opposing `reason` and `diff`, once; on
+   a multi-way split each dissenter addresses the top-count opposing reason in
+   its single line, and on a tied top count the higher-Precedence winning
+   lens's reason and `diff`. Each dissenter ends that pass with one `COUNCIL:`
+   line, which becomes its final-round vote and replaces its Stage 2 line for
+   counting.
 3. Still split after that pass ⇒ chairman decides with these rules and records
    the disagreement in `council.md`.
 

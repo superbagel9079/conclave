@@ -8,11 +8,12 @@ list a Member-letter ranking above the single `COUNCIL:` line.
 Verdict lenses return one `COUNCIL:` line each:
 
 ```
-COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>
 ```
 
 `pass` ships as-is through this lens; `fix` does not, and `diff` names the one
-change that moves it. `sev` is the severity of the lens's own finding. A `fix`
+change that moves it. `sev` is the severity of the lens's own finding, `loc`
+names the file and line it points at (or `none` on a clean pass). A `fix`
 needs a concrete, named finding at `critical` or `major`. A `pass` that found
 only `minor` or `nit` still passes, even if two lenses flag the same thing; the
 shared `diff` is recorded as a recommendation, not a block. The writer caps at
@@ -161,7 +162,7 @@ CONTEXT: <one line>
 
 Judge it through your lens only. End with exactly one line:
 
-COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>
 ```
 
 Advisor roster, Stage 1, same payload to all five, only the role and playbook
@@ -197,7 +198,7 @@ is the one labeled Member <X> below.
    Do not re-print any `COUNCIL:` line in the ranking.
 2. Then restate your own verdict as your single `COUNCIL:` line:
 
-COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>
 ```
 
 Stage 2, advisor roster, same shape. The chairman tells each advisor which
@@ -205,6 +206,22 @@ Member it was, then each ranks the `steer` lines and restates its own:
 
 ```
 COUNCIL: steer  reason=<one line>  diff=<what to try>
+```
+
+Dissent pass, verdict roster, one fresh lens per dissenter (same role as its
+Stage 2 member), never a steer of the old session. The chairman hands the
+dissenter the opposing `reason` and `diff` (and the disputed lines from the
+`loc=` fields) and asks for one line:
+
+```
+You are the <ROLE> lens. In Stage 2 you voted as Member <X>. The plurality
+held <VERDICT>; you must address this opposing case, once.
+
+<opposing reason and diff, plus the disputed lines>
+
+End with exactly one line:
+
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>
 ```
 
 Every prompt ends with the no-edit suffix:

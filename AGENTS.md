@@ -36,7 +36,7 @@ this result as-is. It stays above the votes and never joins them.
 Each member returns a single line, no prose:
 
 ```
-COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>
 ```
 
 ## Convergence

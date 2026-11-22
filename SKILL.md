@@ -69,10 +69,12 @@ Loops cost tokens. Three rules keep a debate cheap:
 
 1. **Fresh lenses, every round.** Spawn a new lens per round; never steer an
    old session into the next round, because retained context is re-sent and
-   grows. In Stage 2 the chairman tells each fresh lens which Member it was,
-   so "restate your own verdict" still works with no carried session.
+   grows. Stage 2 and the dissent pass each use a fresh lens; the chairman
+   tells the fresh Stage 2 lens which Member it was, so "restate your own
+   verdict" still works with no carried session.
 2. **Delta payloads.** After round 1, hand each lens only the prior `COUNCIL:`
-   lines plus the exact disputed file and line numbers, never the whole repo.
+   lines plus the disputed lines named by their `loc=` fields, never the whole
+   repo.
 3. **Convergence gate.** Stage 2 always runs. After it, stop the moment every
    lens returned `pass` with no finding and the chairman's confidence is at
    least 0.95.
@@ -88,14 +90,15 @@ Exact prompt templates are in `references/lenses.md`.
 The verdict roster returns one `COUNCIL:` line per lens, no prose:
 
 ```
-COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>
 ```
 
-`sev` is the highest severity the lens found. A `fix` must carry a named
-finding at `critical` or `major` (`references/rubric.md`); a `fix` with no
-finding does not count. Only `COUNCIL:` lines are authoritative. The advisor
-roster returns a `steer` line instead, no `pass|fix`, no `sev`
-(`references/lenses.md`).
+`sev` is the highest severity the lens found. `loc` names the file and line
+of the finding, or `none` on a clean pass; the chairman uses it to build the
+round-2 delta payload. A `fix` must carry a named finding at `critical` or
+`major` (`references/rubric.md`); a `fix` with no finding does not count. Only
+`COUNCIL:` lines are authoritative. The advisor roster returns a `steer` line
+instead, no `pass|fix`, no `sev` (`references/lenses.md`).
 
 ## Hard laws
 
