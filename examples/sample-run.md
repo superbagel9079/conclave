@@ -50,7 +50,7 @@ COUNCIL: fix  sev=major  loc=plan.md:4  reason=no retention or restore target na
 
 ## council.md
 
-- Verdict: `fix`, confidence 0.85.
+- Verdict: `fix`, confidence 0.98.
 - Disagreements: writer passed on clarity; architect, reviewer, researcher
   fixed on the missing verify step and unnamed retention.
 - Retained action: all three major diffs, none dropped. Move backup to 02:05
