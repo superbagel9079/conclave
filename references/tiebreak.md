@@ -15,7 +15,9 @@ When verdicts split, higher rows beat lower rows:
 
 ## Rules
 
-- `fix` + named finding beats `pass` + no finding. Always.
+- A `fix` with `sev=critical|major` and a named finding beats `pass` + no
+  finding. A `fix` that only carries `minor` or `nit` does not beat a `pass`
+  unless two or more lenses name the same `diff`.
 - Two lenses with the same `diff` beat one lens with a different `diff`.
 - 50/50 with equally strong findings ⇒ conservative: `fix`, and the retained
   action is the smallest change that clears all named findings.

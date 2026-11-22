@@ -6,11 +6,14 @@ the orchestrator. Hand the lens its playbook in the spawn prompt.
 Every lens returns one line:
 
 ```
-COUNCIL: pass|fix  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
 ```
 
 `pass` ships as-is through this lens; `fix` does not, and `diff` names the one
-change that moves it. A `fix` needs a concrete, named finding behind it.
+change that moves it. `sev` is the severity of the lens's own finding. A `fix`
+needs a concrete, named finding at `critical` or `major`; a `pass` that found
+only `minor` or `nit` still passes unless three lenses flag the same thing
+(`references/rubric.md`).
 
 ---
 
@@ -142,7 +145,7 @@ CONTEXT: <one line>
 
 Judge it through your lens only. End with exactly one line:
 
-COUNCIL: pass|fix  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
 ```
 
 Stage 2, sent to each lens after Stage 1:
@@ -156,7 +159,7 @@ order.
 1. Rank them by accuracy and insight, best first.
 2. Then restate your own verdict as one line:
 
-COUNCIL: pass|fix  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
 ```
 
 Every prompt ends with the no-edit suffix:

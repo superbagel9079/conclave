@@ -24,15 +24,19 @@ line of context. Four spawn types exist, one per lens:
 4. **researcher**: domain grounding. Numbers, constraints, and claims correct
    against the spec and primary sources.
 
-The orchestrator plays the fifth lens, **user**: does Operator get value from
-this result as-is.
+A second roster, `advisor`, opens debates for ideas not results. It runs five
+styles (contrarian, first-principles, expansionist, outsider, executor) and
+the chairman weighs it as steer, not as the four-verdict pass|fix engine.
+
+The orchestrator plays one extra lens, **user**: does Operator get value from
+this result as-is. It stays above the votes and never joins them.
 
 ## Verdict
 
 Each member returns a single line, no prose:
 
 ```
-COUNCIL: pass|fix  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
 ```
 
 ## Convergence
@@ -50,7 +54,8 @@ COUNCIL: pass|fix  reason=<one line>  diff=<what to change>
 - Trust the completion notification, no polling.
 - A verdict with surrounding text is read, but only the COUNCIL line is
   authoritative.
-- No result ships without four real verdicts. An invented debate is worth zero.
+- No result ships without four real verdicts from the `verdict` roster. An
+  invented debate is worth zero.
 
 ## Receipt
 
@@ -71,7 +76,8 @@ Read every session. Write changes in place, prefix-stable.
 - Source of truth: this repo. The skill is installed at
   `~/.agents/skills/conclave/`.
 - The council is a three-stage debate bench (first opinions, anonymized peer
-  review with rankings, chairman synthesis) with two rosters (verdict and
-  advisor), a machine-derived pass|fix verdict, and a receipt.
+  review with rankings, chairman synthesis) with two rosters (verdict, four
+  lenses; advisor, five styles), a machine-derived pass|fix verdict carrying
+  `sev=`, and a receipt.
 - The council debates the result, never rebuilds it.
 - humanizer always on: no em-dashes, no en-dashes, no cadratins, ever.

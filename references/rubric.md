@@ -14,6 +14,9 @@ the findings, so it can never disagree with the evidence.
 
 ## Mechanical verdict
 
+Severity is read from each `COUNCIL:` line's `sev` field, never inferred from
+the `reason` prose.
+
 - Any **critical** finding ⇒ `fix`, no discussion.
 - Any **major** finding from the reviewer, researcher, or architect ⇒ `fix`.
 - Only minor/nit findings ⇒ `pass`.
@@ -31,6 +34,7 @@ from 0 to 1. Raise it when:
 - multiple lenses name the same finding independently (+)
 - the finding is quoted from a source or a specific line (+)
 - a lens changes `pass` to `fix` after Stage 2 review (+)
+- Stage 2 rankings put the same finding first (+)
 
 Lower it when:
 

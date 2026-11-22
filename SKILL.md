@@ -2,7 +2,6 @@
 name: conclave
 description: "Three-stage debate bench that spawns lens agents in parallel; independent first opinions, anonymized peer review with rankings, then a chairman synthesis into council.md with a machine-derived pass|fix verdict and a receipt. Two rosters: verdict lenses (architect, reviewer, writer, researcher) for finished results, advisor styles (contrarian, first-principles, expansionist, outsider, executor) for open ideas. Use whenever Operator wants multiple agents debating whether a thing is good, what to improve, what to change, what is wrong."
 license: MIT
-user-invocable: true
 ---
 
 # conclave, the debate bench
@@ -39,20 +38,27 @@ Pick one, or mix as the ask demands. Full playbooks live in
 | `verdict` | architect, reviewer, writer, researcher |
 | `advisor` | contrarian, first-principles, expansionist, outsider, executor |
 
-The orchestrator is always a fifth, extra lens, **user**, but it stays on
-top, reads the council, and never joins the debate.
+The orchestrator is always an extra lens, **user**, one above the debate. It
+stays on top, reads the verdicts, and never joins. The `verdict` roster is the
+mechanical pass|fix engine and always runs all four lenses. The `advisor`
+roster is for open ideas: its five lenses return recommendations, not a
+blocking severity, and the chairman weighs them with the rules in
+`references/tiebreak.md`.
 
 ## Three stages
 
 1. **First opinions.** Spawn every lens in parallel, `wait:false`, fresh
    context, same input, no cross-talk. One opinion each.
-2. **Review.** Each lens receives the other members' Stage 1 opinions,
-   anonymized as `Member A`, `Member B`, ... in shuffled order, and ranks them
-   by accuracy and insight, then restates its own verdict.
-3. **Final response.** The chairman reads all Stage 2 outputs, weighs them
-   through the user lens, and writes `council.md`: final verdict, the
-   disagreements, the one action retained. Ship on `council.md`, never on a
-   lone lens.
+2. **Review.** The orchestrator anonymizes the Stage 1 opinions as
+   `Member A`, `Member B`, ... and shuffles the order. Each lens then ranks
+   them by accuracy and insight and restates its own verdict.
+3. **Final response.** The chairman reads all Stage 2 verdicts and rankings,
+   weighs them through the user lens, and writes `council.md`: final verdict,
+   the disagreements, the one action retained. Ship on `council.md`, never on
+   a lone lens.
+
+If the Stage 2 verdicts still split, the chairman runs one tie-break pass
+(round 2, `references/tiebreak.md`), then decides. Two debate rounds max.
 
 Exact prompt templates are in `references/lenses.md`.
 
@@ -61,11 +67,12 @@ Exact prompt templates are in `references/lenses.md`.
 One line per member, no prose:
 
 ```
-COUNCIL: pass|fix  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=<what to change>
 ```
 
-A `fix` must be derived from a named finding (`references/rubric.md`); a `fix`
-with no finding does not count. Only `COUNCIL:` lines are authoritative.
+`sev` is the highest severity the lens found. A `fix` must carry a named
+finding at `critical` or `major` (`references/rubric.md`); a `fix` with no
+finding does not count. Only `COUNCIL:` lines are authoritative.
 
 ## Hard laws
 
