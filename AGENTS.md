@@ -12,7 +12,7 @@ to the builder first. A member who starts building has stepped out of role.
 ## The four lenses
 
 Each member is a lens, fresh context, same input: the result to debate plus one
-line of context. Four spawn types exist, one per lens:
+line of context. Four verdict spawn types exist, one per lens:
 
 1. **architect**: does the structure hold? What breaks first, step order,
    dependencies, internal contradictions.
@@ -44,10 +44,13 @@ COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=
 1. Collect each lens's final-round verdict only.
 2. Stage 2 always runs: each lens reviews the anonymized Stage 1 opinions and
    ranks them. If lenses still split after Stage 2, the chairman runs one
-   dissent pass, once.
-3. The orchestrator decides, then writes council.md: final verdict,
+   dissent pass, once. Stage 1 and Stage 2 are the two reasoning rounds; the
+   dissent pass is the only extra.
+3. Stop early only after Stage 2: when every lens returned `pass sev=none` and
+   the chairman's confidence is at least 0.95 (`references/rubric.md`).
+4. The orchestrator decides, then writes council.md: final verdict,
    disagreements, action retained.
-4. The orchestrator ships on council.md, never on a single lens.
+5. The orchestrator ships on council.md, never on a single lens.
 
 ## Hard laws
 
@@ -56,14 +59,21 @@ COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  reason=<one line>  diff=
 - A verdict with surrounding text is read, but only the COUNCIL line is
   authoritative.
 - No result ships without four real verdicts from the `verdict` roster. An
-  invented debate is worth zero.
+  invented debate is worth zero. An advisor-only run is a direction, not a
+  verdict, and breaks this law only for itself.
 
 ## Receipt
 
-Every council session closes with one machine line:
+Every verdict-roster session closes with one machine line:
 
 ```
 RECEIPT: passed=<true|false>  evidence=<files + verdicts>  diff=<gap vs request>
+```
+
+An advisor-only session closes with a direction line instead:
+
+```
+RECEIPT: direction=<one line>  evidence=<steer lines>  diff=<what to try>
 ```
 
 ---

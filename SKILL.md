@@ -60,7 +60,8 @@ blocking severity, and the chairman weighs them with the rules in
    a lone lens.
 
 If the Stage 2 verdicts still split, the chairman runs one dissent pass
-(`references/tiebreak.md`), then decides. Two reasoning rounds max.
+(`references/tiebreak.md`), then decides. Stage 1 and Stage 2 are the two
+reasoning rounds; the dissent pass is the only extra.
 
 ## Token lean
 
