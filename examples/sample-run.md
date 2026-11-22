@@ -53,8 +53,10 @@ COUNCIL: fix  sev=major  loc=plan.md:4  reason=no retention or restore target na
 - Verdict: `fix`, confidence 0.85.
 - Disagreements: writer passed on clarity; architect, reviewer, researcher
   fixed on the missing verify step and unnamed retention.
-- Retained action: add a post-backup restore test, an alert on nonzero exit,
-  and named retention plus restore target. Ship after that.
+- Retained action: all three major diffs, none dropped. Move backup to 02:05
+  with a 'backup verified' acceptance check; add a post-backup restore test
+  and an alert on nonzero exit; state a retention window and a restore target.
+  Ship after that.
 
 ## Receipt
 

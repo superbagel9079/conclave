@@ -48,8 +48,17 @@ When verdicts split, higher rows beat lower rows:
 
 ## What council.md must contain
 
+A verdict-roster run records:
+
 - Final verdict: `pass` or `fix`, with confidence from the rubric.
 - The disagreements, in one line each ("reviewer said fix, writer said pass").
-- The one action retained, quoted as a `diff`, with its finding.
+- The action retained: every distinct `critical` or `major` diff, in
+  precedence order. Divergent major diffs are all retained, none dropped; a
+  `minor` or `nit` diff is retained only as a recommendation.
+
+An advisor-only run records instead:
+
+- The direction, one line, the chairman's chosen `steer`.
+- The disagreements, in one line each.
 
 Ship on `council.md`, never on a lone lens.

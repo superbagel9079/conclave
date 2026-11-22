@@ -38,8 +38,8 @@ Pick a roster, or run both as the ask demands. Full playbooks live in
 | `verdict` | architect, reviewer, writer, researcher |
 | `advisor` | contrarian, first-principles, expansionist, outsider, executor |
 
-The orchestrator is always an extra lens, **user**, one above the debate. It
-stays on top, reads the verdicts, and never joins. The `verdict` roster is the
+The orchestrator is always an extra lens, **user**, positioned above the
+debate. It stays on top, reads the verdicts, and never joins. The `verdict` roster is the
 mechanical pass|fix engine and always runs all four lenses. The `advisor`
 roster is for open ideas: its five lenses return recommendations, not a
 blocking severity, and the chairman weighs them with the rules in
