@@ -18,7 +18,8 @@ the findings, so it can never disagree with the evidence.
 Severity is read from each `COUNCIL:` line's `sev` field, never inferred from
 the `reason` prose.
 
-- Any **critical** finding ⇒ `fix`, no discussion.
+- Any **critical** finding from the reviewer, researcher, or architect ⇒
+  `fix`, no discussion.
 - Any **major** finding from the reviewer, researcher, or architect ⇒ `fix`.
 - The writer caps at `minor`: a writer finding never blocks a structural pass.
 - Only minor/nit findings ⇒ `pass`.

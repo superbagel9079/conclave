@@ -23,7 +23,8 @@ When verdicts split, higher rows beat lower rows:
   action is the smallest change that clears all named findings.
 - Advisor roster: contrarian (what fails) and executor (first action) outrank
   expansionist (upside) when the ask was about risk; first-principles outranks
-  all when the ask was "right problem?".
+  all when the ask was "right problem?"; outsider outranks all when the ask was
+  "clear to a newcomer?".
 - A lens that produced no finding cannot veto; only `COUNCIL:` lines count.
 
 ## Tie-break rounds
