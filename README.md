@@ -22,12 +22,20 @@ findings: two models do not share every blind spot.
 
 ## Install
 
-Copy the skill into your skills directory:
+Link the skills directory to your clone, so every `git pull` updates the
+installed skill. Run from the clone:
 
 ```bash
-cp -r . ~/.agents/skills/conclave/
+ln -s "$PWD" ~/.agents/skills/conclave
 ```
 
+On Windows (a junction needs no admin rights):
+
+```powershell
+New-Item -ItemType Junction -Path "$HOME\.agents\skills\conclave" -Target (Get-Location)
+```
+
+The chairman runs `scripts/quotecheck.py`, so Python 3 must be on the path.
 Then reload, or force-load it:
 
 ```text
@@ -56,6 +64,8 @@ references/lenses.md            # full playbook per lens + prompt templates
 references/rubric.md            # severity, mechanical verdict, unverified list
 references/tiebreak.md          # chairman decision rules
 examples/sample-run.md          # golden run to imitate
+scripts/quotecheck.py           # quote check, whitespace collapsed
+scripts/test_quotecheck.py      # its self-test: python scripts/test_quotecheck.py
 ```
 
 ## License

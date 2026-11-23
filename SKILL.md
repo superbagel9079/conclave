@@ -48,8 +48,9 @@ nothing the chairman cannot do.
 
 1. **Stage 1.** Spawn the lenses in parallel, fresh context, no cross-talk.
 2. **Validity check**, before the split test (`references/rubric.md`). For
-   each blocking finding the chairman searches the quote in the input with
-   whitespace and newlines collapsed on both sides, checks that a `major`
+   each blocking finding the chairman runs
+   `python scripts/quotecheck.py "<quote>" <input>` (path relative to this
+   skill; whitespace and newlines are collapsed on both sides), checks that a `major`
    names what breaks and when, and opens any outside source it cites. A
    quote not found voids the finding; an unnamed major drops to `minor`; an
    outside source that cannot be opened sends the finding to the unverified

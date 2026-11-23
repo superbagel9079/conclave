@@ -31,7 +31,8 @@ Validity check, run by the chairman right after Stage 1 and again on the
 final round:
 
 - **Quote.** Collapse every run of whitespace and newlines to one space, in
-  both the quote and the input, then search. Not found voids the finding,
+  both the quote and the input, then search: `scripts/quotecheck.py` does
+  exactly this (exit 0 found, 1 not found). Not found voids the finding,
   whatever its severity. Files are hard-wrapped, so a literal line grep
   would void real quotes that cross a line break.
 - **Named failure.** A `major` that does not say what breaks and when is
