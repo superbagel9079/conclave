@@ -3,20 +3,18 @@
 The chairman decides once, after the last round its mode allows. These rules
 make the decision a calculation, not a mood.
 
-## `result` mode: precedence of lenses
+## `result` mode: ordering the retained diffs
 
-When final-round verdicts still split, higher rows beat lower rows:
+The verdict comes from `references/rubric.md` alone: any valid critical or
+major is `fix`. A `pass` never outvotes it; a refutation removes a finding
+only through the validity check (quote not found, source contradicts it).
+Precedence only orders the retained diffs in `council.md`:
 
-1. A named factual error (researcher or reviewer) beats every `pass`.
-2. A missing dependency or wrong order (architect) beats every `pass` except
-   a named factual error that proves otherwise.
-3. A valid critical or major finding beats a `pass` with no finding.
-4. Style-only findings (writer) never beat a structural `pass`.
-
-Two lenses with the same `diff` beat one lens with a different `diff`. On a
-50/50 split with equally strong findings, the verdict is `fix` and the
-retained action is the smallest change that clears every named finding. Any
-split broken by precedence goes on the unverified list.
+1. A diff two or more lenses named independently.
+2. A named factual error (researcher or reviewer).
+3. A missing dependency or wrong order (architect).
+4. Any other valid critical or major.
+5. Recommendations (minor, nit, writer) last.
 
 ## `plan` mode: ranking the change list
 
@@ -41,7 +39,7 @@ split broken by precedence goes on the unverified list.
 | mode | contents |
 |------|----------|
 | `result` | verdict; every retained critical/major diff in precedence order; recommendations; disagreements, one line each; unverified list |
-| `plan` | direction, one line; ranked change list; disagreements, one line each |
+| `plan` | direction, one line; ranked change list; disagreements, one line each; unverified list |
 | `research` | answer; sources; disagreements; unverified list |
 
 Ship on `council.md`, never on a lone lens.

@@ -66,5 +66,6 @@ Read every session. Write changes in place, prefix-stable.
   short findings plus one machine line per member, a machine-derived pass|fix
   in result mode, an unverified list instead of a confidence score, and a
   receipt.
-- The council debates the result, never rebuilds it.
+- The council debates what it is given (plan, result, or question), never
+  rebuilds it.
 - humanizer always on: no em-dashes, no en-dashes, no cadratins, ever.

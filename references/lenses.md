@@ -56,7 +56,8 @@ Mission: domain grounding against the spec and primary sources.
 - Claims vs spec: every assertion checked against what was asked.
 - Source quality: primary over secondary; a dated claim needs a source.
 
-Good diff: "budget says 10k but the source says 8k".
+Good diff: "budget says 10k but docs/limits.md says 'max 8000 requests'". An
+outside source always comes with its path or URL and a quote from it.
 Common failure: repeating the result back with citations instead of checking it.
 
 ### writer (only when the result is prose)
@@ -75,7 +76,7 @@ Common failure: editing taste instead of errors, or judging content.
 ## `plan` mode: advisors
 
 ```
-COUNCIL: steer  reason=<one line>  diff=<what to try>
+COUNCIL: steer  reason=<one line>  diff=<what to try>  unchecked=<claims|none>
 ```
 
 No `pass|fix`, no `sev`. Each finding names a concrete change to the plan.
