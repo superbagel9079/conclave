@@ -18,7 +18,7 @@ Result under debate: `plan.md`. Mode: `result`. Not prose, so no writer.
 - Backup runs an hour after deploy; nothing checks it finished before traffic resumes.
   Quote: plan.md:3 "cron backup at 03:00, deploy window 02:00"
   Change: back up at 01:55, gate the deploy on a 'backup verified' check.
-COUNCIL: fix  sev=major  loc=plan.md:3  reason=deploy at 02:00 runs before the 03:00 backup, a bad migration has no restore point  diff=back up before deploy and gate release on 'backup verified'
+COUNCIL: fix  sev=major  loc=plan.md:3  reason=deploy at 02:00 runs before the 03:00 backup, a bad migration has no restore point  diff=back up before deploy and gate release on 'backup verified'  unchecked=none
 ```
 
 **reviewer**
@@ -26,7 +26,7 @@ COUNCIL: fix  sev=major  loc=plan.md:3  reason=deploy at 02:00 runs before the 0
 - A failed cron exits silently; nobody is on call to notice.
   Quote: plan.md:3 "single cron backup"
   Change: alert on nonzero exit, run a restore test after the backup.
-COUNCIL: fix  sev=major  loc=plan.md:3  reason=a failed backup at 03:00 goes unnoticed with no on-call  diff=alert on nonzero exit and add a post-backup restore test
+COUNCIL: fix  sev=major  loc=plan.md:3  reason=a failed backup at 03:00 goes unnoticed with no on-call  diff=alert on nonzero exit and add a post-backup restore test  unchecked=whether the backup tool exits nonzero on partial failure
 ```
 
 **researcher**
@@ -34,12 +34,13 @@ COUNCIL: fix  sev=major  loc=plan.md:3  reason=a failed backup at 03:00 goes unn
 - No retention or restore target, so "backup suffices" cannot be checked.
   Quote: plan.md:4 "backup suffices"
   Change: state retention window and restore time target.
-COUNCIL: fix  sev=major  loc=plan.md:4  reason=no retention or restore target named  diff=state retention window and restore target
+COUNCIL: fix  sev=major  loc=plan.md:4  reason=no retention or restore target named  diff=state retention window and restore target  unchecked=none
 ```
 
-## Early stop
+## Quote check and early stop
 
-Every lens holds a blocking finding, no split. Stage 2 skipped. 3 agents spent.
+All three quotes grep true in `plan.md`. Every structural lens blocks, on
+different findings: no split, Stage 2 skipped. 3 agents spent.
 
 ## council.md
 
@@ -49,8 +50,8 @@ Every lens holds a blocking finding, no split. Stage 2 skipped. 3 agents spent.
   2. Alert on nonzero exit; run a restore test after the backup.
   3. State a retention window and a restore target.
 - Disagreements: none.
-- Unverified: whether the backup tool returns a nonzero exit on partial
-  failure; no lens checked its docs.
+- Unverified (union of `unchecked=`): whether the backup tool exits nonzero
+  on partial failure (reviewer).
 
 ## Receipt
 

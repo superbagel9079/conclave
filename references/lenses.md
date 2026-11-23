@@ -12,9 +12,11 @@ then its one machine line. No other prose.
 ## `result` mode: verdict lenses
 
 ```
-COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>  unchecked=<claims|none>
 ```
 
+`unchecked` names every claim the lens did not open, run, or check against a
+source. `none` is a claim too: it says the lens checked everything it relied on.
 `sev` is the highest severity among the lens's own findings. A `fix` needs a
 critical finding, or a major one that names what breaks and when, and a
 verbatim quote (`references/rubric.md`). The writer caps at `minor`.
@@ -122,8 +124,11 @@ load-bearing claim, check the quote is really there and really supports the
 claim.
 
 ```
-VERIFY: confirmed=<claims>  contradicted=<claims + why>  unsourced=<claims>
+VERIFY: confirmed=<claims>  contradicted=<claims + why>  unsourced=<claims>  unreachable=<claims + source>
 ```
+
+`unreachable` is a source that could not be opened (paywall, dead link,
+unreadable file). It is not evidence against the claim.
 
 ---
 
@@ -162,21 +167,23 @@ QUESTION: <question>
 Open every cited source. For each load-bearing claim, check the quote exists
 and supports the claim. End with exactly one line:
 
-VERIFY: confirmed=<claims>  contradicted=<claims + why>  unsourced=<claims>
+VERIFY: confirmed=<claims>  contradicted=<claims + why>  unsourced=<claims>  unreachable=<claims + source>
 ```
 
-Stage 2 (`result` mode, only on a split), one fresh lens per role:
+Stage 2 (`result` mode, only on a split), one fresh lens per structural role:
 
 ```
 You are the <ROLE> lens. In Stage 1 you were Member <X>. The Stage 1 findings
 are below, anonymized and shuffled; yours is Member <X>.
 
+INPUT: <the path to read>
+
 <Member A findings + line> / <Member B findings + line> / ...
 
-Weigh the others' findings against yours. Keep, drop, or change your verdict,
-then end with exactly one line:
+Reopen the input where the split needs it. Weigh the others' findings against
+yours. Keep, drop, or change your verdict, then end with exactly one line:
 
-COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>
+COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>  unchecked=<claims|none>
 ```
 
 Every prompt ends with the no-edit suffix:

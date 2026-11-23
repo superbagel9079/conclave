@@ -8,7 +8,7 @@ output. Never ship on one agent's guess.
 | mode | use it for | you get | agents |
 |------|-----------|---------|--------|
 | `plan` | an action plan before you commit | a ranked change list | 5 |
-| `result` | a finished result: ship or not | `pass` / `fix` with every blocking diff | 3 or 4, up to 8 on a split |
+| `result` | a finished result: ship or not | `pass` / `fix` with every blocking diff | 3 or 4, up to 7 on a split |
 | `research` | a question that needs a checked answer | answer, sources, what stayed unverified | 4 |
 
 Instead of a confidence score, every run lists what nobody verified. That
