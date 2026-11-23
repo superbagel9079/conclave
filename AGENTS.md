@@ -1,82 +1,56 @@
 # THE COUNCIL
 
-The council is a debate bench. It critiques a finished result; it never does
-the work. The orchestrator stays above it: it reads the consensus and decides,
-it does not become a member.
+The council is a debate bench. It critiques a plan, a finished result, or an
+answer to a research question; it never does the work. The orchestrator stays
+above it: it reads the findings and decides, it does not become a member.
 
 ## Golden rule
 
-The council debates the RESULT. If the work is still missing, it is sent back
-to the builder first. A member who starts building has stepped out of role.
+The council debates what it is given. If the work is still missing, it is
+sent back to the builder first. A member who starts building has stepped out
+of role.
 
-## The four lenses
+## Three modes
 
-Each member is a lens, fresh context, same input: the result to debate plus one
-line of context. Four verdict spawn types exist, one per lens:
-
-1. **architect**: does the structure hold? What breaks first, step order,
-   dependencies, internal contradictions.
-2. **reviewer**: red team. Attacks the result. Factual error, overpromise,
-   ambiguity, weakest instruction, cargo-cult, what would derail the result in
-   real conditions.
-3. **writer**: clarity, precision, rhythm, and respect for the style rules of
-   the result itself. Cite the faulty line.
-4. **researcher**: domain grounding. Numbers, constraints, and claims correct
-   against the spec and primary sources.
-
-A second roster, `advisor`, opens debates for ideas not results. It runs five
-styles (contrarian, first-principles, expansionist, outsider, executor) and
-the chairman weighs it as steer, not as the four-verdict pass|fix engine.
+1. **plan**: five advisor styles (contrarian, first-principles, expansionist,
+   outsider, executor) critique an action plan. The chairman returns a ranked
+   change list and a direction. The builder rewrites the plan.
+2. **result**: verdict lenses (architect, reviewer, researcher, plus writer
+   when the result is prose) judge a finished result. The verdict is
+   machine-derived `pass|fix`.
+3. **research**: three independent researchers answer a question with
+   sources; one verifier checks every citation. The answer keeps confirmed
+   claims only.
 
 The orchestrator plays one extra lens, **user**: does Operator get value from
-this result as-is. It stays above the votes and never joins them.
+this as-is. It stays above the findings and never joins them.
 
-## Verdict
+## Output
 
-Each member returns a single line, no prose:
-
-```
-COUNCIL: pass|fix  sev=<critical|major|minor|nit|none>  loc=<file:line|none>  reason=<one line>  diff=<what to change>
-```
-
-`loc` is the finding's file and line, `none` on a clean pass.
+Each member writes up to three short findings (what is wrong, the quote or
+source, what to change), then one machine line. The machine line is
+authoritative for counting. Formats live in `references/lenses.md`.
 
 ## Convergence
 
-1. Collect each lens's final-round verdict only.
-2. Stage 2 always runs: each lens reviews the anonymized Stage 1 opinions and
-   ranks them. If lenses still split after Stage 2, the chairman runs one
-   dissent pass, once. Stage 1 and Stage 2 are the two reasoning rounds; the
-   dissent pass is the only extra.
-3. Stop early only after Stage 2: when every lens returned `pass sev=none` and
-   the chairman's confidence is at least 0.98 (`references/rubric.md`).
-4. The orchestrator decides, then writes council.md: final verdict,
-   disagreements, actions retained, none dropped.
+1. `result` mode: Stage 2 runs only when lenses split on a blocking finding.
+   No extra round after it; the chairman applies `references/tiebreak.md`.
+2. `plan` mode: no Stage 2; the chairman merges and ranks.
+3. `research` mode: the verifier pass replaces Stage 2.
+4. There is no confidence score. `council.md` lists what stayed unverified
+   (`references/rubric.md`).
 5. The orchestrator ships on council.md, never on a single lens.
 
 ## Hard laws
 
 - No member modifies, creates, or deletes files. No code.
 - Trust the completion notification, no polling.
-- A verdict with surrounding text is read, but only the COUNCIL line is
-  authoritative.
-- No result ships without four real verdicts from the `verdict` roster. An
-  invented debate is worth zero. An advisor-only run is a direction, not a
-  verdict, and breaks this law only for itself.
+- A `fix` quotes the faulty line verbatim; a research claim cites a source.
+- No result ships without real verdicts. An invented debate is worth zero.
 
 ## Receipt
 
-Every verdict-roster session closes with one machine line:
-
-```
-RECEIPT: passed=<true|false>  evidence=<files + verdicts>  diff=<gap vs request>
-```
-
-An advisor-only session closes with a direction line instead:
-
-```
-RECEIPT: direction=<one line>  evidence=<steer lines>  diff=<what to try>
-```
+Every session closes with one machine line, per mode, defined in `SKILL.md`.
 
 ---
 
@@ -88,9 +62,9 @@ Read every session. Write changes in place, prefix-stable.
 - All content is English.
 - Source of truth: this repo. The skill is installed at
   `~/.agents/skills/conclave/`.
-- The council is a three-stage debate bench (first opinions, anonymized peer
-  review with rankings, chairman synthesis) with two rosters (verdict, four
-  lenses; advisor, five styles), a machine-derived pass|fix verdict carrying
-  `sev=`, and a receipt.
+- The council is a debate bench with three modes (plan, result, research),
+  short findings plus one machine line per member, a machine-derived pass|fix
+  in result mode, an unverified list instead of a confidence score, and a
+  receipt.
 - The council debates the result, never rebuilds it.
 - humanizer always on: no em-dashes, no en-dashes, no cadratins, ever.

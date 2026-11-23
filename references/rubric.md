@@ -1,52 +1,45 @@
-# Rubric: severity, confidence, mechanical verdict
+# Rubric: severity, mechanical verdict, unverified list
 
-The chairman does not decide the verdict by feel. The verdict is computed from
+The chairman does not decide the `result` verdict by feel. It is computed from
 the findings, so it can never disagree with the evidence.
 
 ## Severity
 
 | level | meaning | consequence |
 |-------|---------|-------------|
-| none | no finding | `pass`, never blocks |
-| critical | false claim, wrong number that breaks the result, unsafe step, missing dependency that halts it | `fix`, blocks ship |
-| major | a hole the result papers over, a weak instruction that will derail it in real conditions | `fix` |
-| minor | phrasing, order, a nit that does not change the outcome | `pass`; two lenses agreeing record a recommendation, never a block |
-| nit | style only | never blocks |
+| none | no finding | `pass` |
+| critical | false claim, wrong number that breaks the result, unsafe step, missing dependency that halts it | `fix` |
+| major | a concrete failure in real conditions: the lens names what breaks and when | `fix` |
+| minor | phrasing, order, a gap that does not change the outcome | recommendation, never blocks |
+| nit | style only | recommendation, never blocks |
 
-## Mechanical verdict
+A `major` with no named failure ("could be clearer", "might not scale") is
+read as `minor`. Critics always find something; the failure scenario is what
+separates a real block from a reflex.
 
-Severity is read from each `COUNCIL:` line's `sev` field, never inferred from
-the `reason` prose. Count each lens once, from its final-round `COUNCIL:`
-line; Stage 1 lines are context for the review, not votes.
+## Mechanical verdict (`result` mode)
 
-- Any **critical** finding from the reviewer, researcher, or architect ⇒
-  `fix`, no discussion.
-- Any **major** finding from the reviewer, researcher, or architect ⇒ `fix`.
-- The writer caps at `minor`: a writer finding never blocks a structural pass.
-- Only minor/nit findings ⇒ `pass`.
-- Two or more lenses naming the same `diff` independently ⇒ that is the action
-  retained. If the shared finding is only minor, it is recorded as a
-  recommendation, not a block.
+Read `sev` from each lens's final-round `COUNCIL:` line, never from prose.
+Stage 1 lines count only when Stage 2 was skipped.
 
-A `fix` without a named finding does not count. The verdict cannot contradict
-the evidence: if the findings are critical, the verdict is `fix`.
+- Any valid `critical` or `major` from architect, reviewer, or researcher ⇒ `fix`.
+- The writer caps at `minor`: it never blocks a structural pass.
+- Only minor or nit findings ⇒ `pass`.
+- A `fix` without a verbatim quote does not count.
 
-## Confidence
+Retained actions: every distinct `critical` or `major` diff, none dropped.
+Minor and nit diffs are listed as recommendations.
 
-Confidence is the chairman's estimate that the retained action is correct,
-from 0 to 1. Raise it when:
+## Unverified list (every mode)
 
-- multiple lenses name the same finding independently (+)
-- the finding is quoted from a source or a specific line (+)
-- a lens changes `pass` to `fix` after Stage 2 review (+)
-- Stage 2 rankings put the same finding first (+)
-- a second, different model names the same finding (strong mode) (+)
+There is no confidence score. A self-estimated number is not calibrated, and
+a threshold on it only hides what was not checked. Instead `council.md` lists
+what nobody verified:
 
-Lower it when:
+- a claim no lens checked against a source or a line
+- a finding only one lens raised, with no quote or source behind it
+- a split the chairman broke by precedence, not by evidence
+- in `research` mode, every claim the verifier marked `unsourced`
 
-- the lenses split and the chairman had to break the tie (-)
-- the deciding finding comes from a single lens with no source (-)
-
-Report confidence with the verdict in `council.md`. The ship gate is 0.98:
-at or above it the skill stops after Stage 2; below it a `fix` means "get one
-more look", never "pretend it is settled".
+An empty list is the ship signal. A non-empty list is not a block; it tells
+Operator exactly where to look before relying on the result.

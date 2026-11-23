@@ -1,29 +1,24 @@
 # conclave
 
-A debate bench that spawns lens agents in parallel to judge a result or an
-idea, then converges on one verdict. Three stages: independent first opinions,
-anonymized peer review, chairman synthesis.
+A debate bench that spawns lens agents in parallel, then converges on one
+output. Never ship on one agent's guess.
 
-Never ship on one agent's guess. Several lenses attack the result, rank each
-other's work anonymously, and a chairman ships one machine-derived verdict
-(`pass` / `fix`) with the exact finding behind it.
+## Modes
 
-## What it does
+| mode | use it for | you get | agents |
+|------|-----------|---------|--------|
+| `plan` | an action plan before you commit | a ranked change list | 5 |
+| `result` | a finished result: ship or not | `pass` / `fix` with every blocking diff | 3 or 4, up to 8 on a split |
+| `research` | a question that needs a checked answer | answer, sources, what stayed unverified | 4 |
 
-- Stage 1: every lens gives a first opinion in parallel, no cross-talk.
-- Stage 2: each lens reviews the others' opinions, anonymized as
-  `Member A/B/C` in shuffled order, and ranks them by internal consistency and
-  insight.
-- Stage 3: the chairman reads all of it, applies the user lens, and writes
-  `council.md`: final verdict, the disagreements, the actions retained, none
-  dropped.
+Instead of a confidence score, every run lists what nobody verified. That
+list, not a number, tells you where to look.
 
-Two rosters:
+## Models
 
-- `verdict`: architect, reviewer, writer, researcher. For a finished result:
-  ship or fix.
-- `advisor`: contrarian, first-principles, expansionist, outsider, executor.
-  For an open idea before you commit.
+Run lenses on a high-reasoning model at high effort. For results that matter,
+strong mode runs the same mode on two different models and keeps the union of
+findings: two models do not share every blind spot.
 
 ## Install
 
@@ -44,19 +39,21 @@ Then reload, or force-load it:
 Say "conclave" or "debate this", then hand it a file or paste a result:
 
 ```text
-conclave: critique plan.md
+conclave plan: critique plan.md
+conclave result: is report.md ready to ship?
+conclave research: what is the rate limit of API X?
 ```
 
-The skill reads `references/` as it goes and never rebuilds: it debates the
-result, it does not do the work.
+The skill reads `references/` as it goes and never rebuilds: it debates, it
+does not do the work.
 
 ## Files
 
 ```
-SKILL.md                        # the spine: stages, verdict, hard laws
+SKILL.md                        # the spine: modes, flow, hard laws
 AGENTS.md                       # originating spec, the council laws
 references/lenses.md            # full playbook per lens + prompt templates
-references/rubric.md            # severity, confidence, mechanical verdict
+references/rubric.md            # severity, mechanical verdict, unverified list
 references/tiebreak.md          # chairman decision rules
 examples/sample-run.md          # golden run to imitate
 ```
