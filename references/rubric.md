@@ -40,6 +40,7 @@ from 0 to 1. Raise it when:
 - the finding is quoted from a source or a specific line (+)
 - a lens changes `pass` to `fix` after Stage 2 review (+)
 - Stage 2 rankings put the same finding first (+)
+- a second, different model names the same finding (strong mode) (+)
 
 Lower it when:
 
